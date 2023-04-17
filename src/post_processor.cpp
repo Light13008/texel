@@ -57,7 +57,8 @@ void PostProcessor::BeginRender() {
 
 void PostProcessor::Render() {
   this->PostProcessingShader.Use();
-  this->PostProcessingShader.SetVector2f("resolution", glm::vec2(800, 600));
+  this->PostProcessingShader.SetVector2f("resolution",
+                                         glm::vec2(this->Width, this->Height));
   this->PostProcessingShader.SetVector3f("light.ambient", this->Light.Ambient);
   this->PostProcessingShader.SetVector3f("light.diffuse", this->Light.Diffuse);
   this->PostProcessingShader.SetVector2f("light.direction",
